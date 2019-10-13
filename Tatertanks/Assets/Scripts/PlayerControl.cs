@@ -35,5 +35,11 @@ public class PlayerControl : MonoBehaviour
         {
             transform.Rotate(Vector3.down * Time.deltaTime * rotatespeed);
         }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * rotatespeed);
+        }
+
     }
 }
