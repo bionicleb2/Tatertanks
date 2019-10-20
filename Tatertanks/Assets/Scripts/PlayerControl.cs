@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 10.0f;
     public float rotatespeed = 40.0f;
+    public GameObject projectilePrefab;
+    
     void Start()
     {
         
@@ -16,29 +18,30 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         //move player
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(-Vector3.forward * Time.deltaTime * speed);
         }
         
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.up * Time.deltaTime * rotatespeed);
         }
         
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.down * Time.deltaTime * rotatespeed);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Translate(Vector3.up * Time.deltaTime * rotatespeed);
+            //launch a projectile from player
+            Instantiate(projectilePrefab, transform.position, transform.rotation);
         }
 
     }
