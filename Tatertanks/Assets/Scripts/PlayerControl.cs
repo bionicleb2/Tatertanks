@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
     public float speed = 10.0f;
     public float rotatespeed = 40.0f;
     public GameObject projectilePrefab;
-    
+    public float playerHealth = 10f;    
     
     void Start()
     {
