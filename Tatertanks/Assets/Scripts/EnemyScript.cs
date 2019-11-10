@@ -17,14 +17,4 @@ public class EnemyScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        enemyHealth -= 1;
-        if (enemyHealth < 1)
-        {
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-        }
-        
-    }
 }

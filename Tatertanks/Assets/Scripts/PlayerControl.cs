@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 10.0f;
     public float rotatespeed = 40.0f;
-    public GameObject projectilePrefab;
+    
     public float playerHealth = 10f;    
     
     void Start()
@@ -39,11 +39,6 @@ public class PlayerControl : MonoBehaviour
             transform.Rotate(Vector3.down * Time.deltaTime * rotatespeed);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //launch a projectile from player
-            Instantiate(projectilePrefab, transform.position, transform.rotation);
-        }
 
     }
 }
