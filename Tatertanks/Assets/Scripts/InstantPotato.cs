@@ -6,6 +6,7 @@ public class InstantPotato : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject projectilePrefab;
+    public ParticleSystem SmokeParticle;
     void Start()
     {
         
@@ -18,6 +19,7 @@ public class InstantPotato : MonoBehaviour
         {
             //launch a projectile from player
             Instantiate(projectilePrefab, transform.position, transform.rotation);
+            SmokeParticle.Play();
         }
     }
 }

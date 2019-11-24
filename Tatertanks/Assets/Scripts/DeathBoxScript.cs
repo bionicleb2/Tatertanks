@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyEnemy : MonoBehaviour
+public class DeathBoxScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    
     void Start()
     {
         
@@ -14,14 +13,11 @@ public class DestroyEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Potato"));
-        {
-
-        }
+        Destroy(other.gameObject);
     }
 }

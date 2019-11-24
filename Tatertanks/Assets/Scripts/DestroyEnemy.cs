@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyEnemy : MonoBehaviour
+public class DestroyOutOfWorld : MonoBehaviour
 {
     // Start is called before the first frame update
     
@@ -14,14 +14,9 @@ public class DestroyEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Potato"));
+        if (transform.position.y < 0)
         {
-
+            Destroy(gameObject);
         }
     }
 }

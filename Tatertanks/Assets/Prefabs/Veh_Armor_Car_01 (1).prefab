@@ -321,11 +321,11 @@ GameObject:
   - component: {fileID: 3627349553601183453}
   - component: {fileID: 970866239674029799}
   - component: {fileID: 3627349553603314143}
-  - component: {fileID: -6788438721300994818}
   - component: {fileID: 6205045875759702082}
+  - component: {fileID: -3473280381415526447}
   m_Layer: 0
   m_Name: Veh_Armor_Car_01 (1)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,18 +425,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-6788438721300994818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3627349553603352423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e748bdb1b5377fd44b69165349ccea6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &6205045875759702082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -450,6 +438,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4149134, y: 3.8037806, z: 6.7103386}
   m_Center: {x: 0.00000011920929, y: 2.6350589, z: 0.010605693}
+--- !u!114 &-3473280381415526447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627349553603352423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40678066994ead64a8bdf874e9016357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 10
 --- !u!1 &3627349553603367295
 GameObject:
   m_ObjectHideFlags: 0
