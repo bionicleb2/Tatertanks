@@ -60,6 +60,10 @@ public class PlayerControl : MonoBehaviour
             SmokeParticle.Play();
         }
 
+        if (Input.GetKey(KeyCode.F))
+        {
+            transform.Rotate(Vector3.forward * Time.deltaTime * rotatespeed);
+        }
 
     }
 }

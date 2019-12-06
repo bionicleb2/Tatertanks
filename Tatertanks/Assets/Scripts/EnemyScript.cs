@@ -6,6 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public int enemyHealth = 10;
+   
     public ParticleSystem SmokeParticle;
     void Start()
     {
@@ -15,7 +16,18 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (enemyHealth < 5);
+        {
+            SmokeParticle.Play();
+            Debug.Log("Critical");
+        }
+
+        if (enemyHealth <= 0);
+        {
+            Debug.Log("Enemy Destroyed");
+            Destroy(gameObject);
+            
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -23,17 +35,9 @@ public class EnemyScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Potato"));
         {
             enemyHealth -= 1;
-
+            Debug.Log("Hit!");
         }
 
-        if (enemyHealth < 5) ;
-        {
-            SmokeParticle.Play();
-        }
-
-        if (enemyHealth < 1);
-        {
-            Destroy(gameObject);
-        }
+        
     }
 }
