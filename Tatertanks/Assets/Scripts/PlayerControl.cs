@@ -6,16 +6,18 @@ public class PlayerControl : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed = 10.0f;
-    public float rotatespeed = 40.0f;
+    public float rotatespeed = 50.0f;
     public ParticleSystem DirtParticle;
     public ParticleSystem DirtParticle1;
     public ParticleSystem SmokeParticle;
     public float playerHealth = 10f;
     private bool forward = false;
+    private Rigidbody playerRb;
+    public bool isOnGround = true;
     
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -60,10 +62,26 @@ public class PlayerControl : MonoBehaviour
             SmokeParticle.Play();
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.Q))
         {
             transform.Rotate(Vector3.forward * Time.deltaTime * rotatespeed);
         }
 
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(-Vector3.forward * Time.deltaTime * rotatespeed);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && isOnGround)
+        {
+            playerRb.AddForce(Vector3.up * 20000, ForceMode.Impulse);
+            Debug.Log("LAUNCH!");
+            isOnGround = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isOnGround = true;
     }
 }

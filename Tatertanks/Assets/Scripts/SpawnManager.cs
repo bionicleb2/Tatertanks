@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 5, 5);
+        InvokeRepeating("SpawnEnemy", 5, 20);
     }
 
     // Update is called once per frame
@@ -26,6 +26,7 @@ public class SpawnManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(spawnStart, spawnEnd), 30, Random.Range(spawnStart, spawnEnd));
 
         Instantiate(enemy, spawnPos, enemy.transform.rotation);
+        Debug.Log("Spawned!");
     }
 
 }
