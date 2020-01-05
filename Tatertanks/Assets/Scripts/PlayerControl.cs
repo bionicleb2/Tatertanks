@@ -14,10 +14,15 @@ public class PlayerControl : MonoBehaviour
     private bool forward = false;
     private Rigidbody playerRb;
     public bool isOnGround = true;
-    
+    public AudioClip shootSound;
+    public AudioClip jumpSound;
+    //public AudioClip driveSound;
+    private AudioSource playerAudio;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +31,7 @@ public class PlayerControl : MonoBehaviour
         //move player
         if (Input.GetKey(KeyCode.W))
         {
+            //playerAudio.PlayScheduled(driveSound, 1.0f);
             forward = true;
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             if (forward == true);
@@ -57,9 +63,10 @@ public class PlayerControl : MonoBehaviour
             transform.Rotate(Vector3.down * Time.deltaTime * rotatespeed);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SmokeParticle.Play();
+            playerAudio.PlayOneShot(shootSound, 1.0f);
         }
 
         if (Input.GetKey(KeyCode.Q))
@@ -77,6 +84,7 @@ public class PlayerControl : MonoBehaviour
             playerRb.AddForce(Vector3.up * 20000, ForceMode.Impulse);
             Debug.Log("LAUNCH!");
             isOnGround = false;
+            playerAudio.PlayOneShot(jumpSound, 1f);
         }
     }
 
